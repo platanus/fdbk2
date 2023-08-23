@@ -1,7 +1,4 @@
 class Comment < ApplicationRecord
-  # Validations
-  validates :body, presence: true
-
   belongs_to :feedback_session
   validates :body, presence: true
 end

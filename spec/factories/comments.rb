@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
     feedback_session
-    body { "" }
+    body { Faker::Lorem.paragraph }
   end
 end
