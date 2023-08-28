@@ -62,7 +62,11 @@ module FakeDataLoader
           :feedback_session,
           provider: user,
           receiver: User.where.not(id: user.id).sample
-        )
+        ).tap do |session|
+          create_list(:comment, rand(1..5),
+                      feedback_session: session,
+                      body: Faker::Lorem.paragraph(sentence_count: 2))
+        end
       end
     end
   end

@@ -1,7 +1,8 @@
 class FeedbackSession < ApplicationRecord
-  belongs_to :provider, class_name: 'User'
-  belongs_to :receiver, class_name: 'User'
-
+  belongs_to :provider, class_name: "User"
+  belongs_to :receiver, class_name: "User"
+  has_many :comments, dependent: :destroy
+  accepts_nested_attributes_for :comments, allow_destroy: true
   scope :for_user, ->(user) { where(provider: user).or(where(receiver: user)) }
 
   validates :session_date, presence: true
