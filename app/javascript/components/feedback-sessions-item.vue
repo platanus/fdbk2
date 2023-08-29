@@ -7,6 +7,10 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+
+function navigateToFeedbackSession() {
+  (window as Window).location.href = `/app/feedback_sessions/${props.session.id}`;
+}
 </script>
 
 <template>
@@ -15,7 +19,10 @@ const props = defineProps<Props>();
       {{ type === 'provider' ? props.session.receiver.name : props.session.provider.name }}
     </span>
     <span class="text-sm text-slate-500">{{ props.session.sessionDate }}</span>
-    <button class="ml-auto flex h-6 w-6 items-center justify-center rounded-full bg-slate-100">
+    <button
+      class="ml-auto flex h-6 w-6 items-center justify-center rounded-full bg-slate-100"
+      @click="navigateToFeedbackSession"
+    >
       <inline-svg
         :src="require('images/icons/dots-vertical.svg')"
         class="h-4 w-4 fill-indigo-900"
