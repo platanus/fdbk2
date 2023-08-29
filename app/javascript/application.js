@@ -8,6 +8,7 @@ import BaseCheckbox from './components/base-checkbox.vue';
 import BaseTitle from './components/base-title.vue';
 import UserSession from './components/user-session.vue';
 import FeedbackSessions from './components/feedback-sessions.vue';
+import FeedbackSessionDetails from './components/feedback-session-details.vue';
 import './css/application.css';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   app.component('BaseButton', BaseButton);
   app.component('BaseCheckbox', BaseCheckbox);
   app.component('BaseTitle', BaseTitle);
+  app.component('FeedbackSessionDetails', FeedbackSessionDetails);
   app.mount('#vue-app');
 
   return app;
