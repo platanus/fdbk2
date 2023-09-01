@@ -39,7 +39,7 @@ async function switchType(type: 'provider' | 'receiver') {
 </script>
 
 <template>
-  <div>
+  <div class="mx-auto max-w-7xl">
     <div class="flex">
       <button
         class="flex h-8 items-center justify-center px-3 md:h-14 md:text-lg"
