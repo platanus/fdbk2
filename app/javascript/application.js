@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { VueQueryPlugin } from '@tanstack/vue-query';
 import InlineSvg from 'vue-inline-svg';
 
 import TheHeader from './components/the-header.vue';
@@ -24,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   app.component('InlineSvg', InlineSvg);
-
   app.component('BaseInput', BaseInput);
   app.component('BaseButton', BaseButton);
   app.component('BaseCheckbox', BaseCheckbox);
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   app.component('AuthorHeader', AuthorHeader);
   app.component('CreateComment', CreateComment);
   app.component('CreateCommentForm', CreateCommentForm);
+  app.use(VueQueryPlugin);
   app.mount('#vue-app');
 
   return app;
