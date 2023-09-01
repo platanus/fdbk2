@@ -1,0 +1,7 @@
+<base-title class="mx-auto max-w-7xl">
+  Sesiones de Feedback #<%= @feedback_session.id %>
+</base-title>
+<feedback-session-details
+  :feedback-session="<%= serialize_resource(@feedback_session) %>"
+  :comments="<%= serialize_resource(@comments) %>"
+></feedback-session-details>
