@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import type { FeedbackSession } from 'api/feedback-sessions';
 
 interface Props {
@@ -8,13 +7,12 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const feedbackSessionData = ref<FeedbackSession>(props.feedbackSession);
 </script>
 
 <template>
   <div class="container mt-5 w-3/5 max-w-7xl place-content-start rounded bg-gray-50">
     <div
-      v-if="feedbackSessionData"
+      v-if="props.feedbackSession"
       class="grid grid-cols-2 gap-2 p-2 sm:grid-cols-2 md:grid-cols-2"
     >
       <div>
@@ -27,7 +25,7 @@ const feedbackSessionData = ref<FeedbackSession>(props.feedbackSession);
             alt="Placeholder"
             class="h-5 w-5 rounded-full border-2 border-indigo-400"
           >
-          {{ feedbackSessionData.provider.name }}
+          {{ props.feedbackSession.provider.name }}
         </div>
       </div>
 
@@ -36,7 +34,7 @@ const feedbackSessionData = ref<FeedbackSession>(props.feedbackSession);
           Fecha:
         </p>
         <div class="flex items-center">
-          {{ feedbackSessionData.sessionDate }}
+          {{ props.feedbackSession.sessionDate }}
         </div>
       </div>
     </div>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import type { FeedbackSession } from 'api/feedback-sessions';
-import { ref } from 'vue';
 
 interface Props {
   feedbackSession: FeedbackSession;
 }
 
 const props = defineProps<Props>();
-const feedbackSessionURL = ref<string>(window.location.href.replace('/comments/new', ''));
+const feedbackSessionURL = window.location.href.replace('/comments/new', '');
 </script>
 
 <template>
