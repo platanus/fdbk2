@@ -1,4 +1,4 @@
-<base-title class="mb-7">
+<base-title class="mb-7 mx-auto max-w-7xl">
   <img
     class="w-7 h-7 md:block hidden"
     src="<%= image_path('icons/feedback-sessions-desktop.png') %>"
@@ -9,7 +9,6 @@
   >
   Sesiones de Feedback
 </base-title>
-
 <feedback-sessions
   initial-type="provider"
   :initial-sessions="<%= serialize_resource(@provider_sessions) %>"
