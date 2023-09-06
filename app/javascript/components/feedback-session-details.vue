@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import type { FeedbackSession } from 'api/feedback-sessions';
 import type { Comment } from 'api/comments';
 
@@ -10,18 +9,13 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const feedbackSessionData = ref<FeedbackSession | null>(props.feedbackSession);
-const commentsData = ref<Comment[] | null>(props.comments);
-
-const feedbackSessionURL = ref<string>('/');
-
 </script>
 
 <template>
   <div class="mx-auto mt-5 max-w-7xl">
     <a
       class="mb-3 flex h-8 w-14 place-content-center items-center gap-2 rounded-full bg-gray-50  text-indigo-500"
-      :href="feedbackSessionURL"
+      href="/"
     >
       <inline-svg
         :src="require('images/icons/left-arrow.svg')"
@@ -29,14 +23,14 @@ const feedbackSessionURL = ref<string>('/');
       />
     </a>
     <base-title class="mx-auto max-w-7xl">
-      Sesiones de Feedback #{{ feedbackSessionData?.id }}
+      Sesiones de Feedback #{{ props.feedbackSession?.id }}
     </base-title>
 
     <div class="container mx-auto mt-2.5">
-      <author-header :feedback-session="feedbackSessionData" />
+      <author-header :feedback-session="props.feedbackSession" />
 
       <div
-        v-if="commentsData"
+        v-if="props.comments"
         class="mt-5"
       >
         <div class="grid grid-cols-2">
@@ -47,7 +41,7 @@ const feedbackSessionURL = ref<string>('/');
         <div class="flex justify-end">
           <a
             class=" flex items-center gap-2 rounded bg-indigo-500 p-2 text-white"
-            :href="`/app/feedback_sessions/${feedbackSessionData?.id}/comments/new`"
+            :href="`/app/feedback_sessions/${props.feedbackSession?.id}/comments/new`"
           >
             <inline-svg
               :src="require('images/icons/message-bubble.svg')"
@@ -58,7 +52,7 @@ const feedbackSessionURL = ref<string>('/');
         </div>
 
         <div
-          v-for="comment in commentsData"
+          v-for="comment in props.comments"
           :key="comment.id"
           class="mt-5"
         >
